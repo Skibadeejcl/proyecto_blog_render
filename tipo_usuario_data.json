@@ -1,0 +1,30 @@
+[
+    {
+        "model": "a_inicio.tipo_usuario",
+        "pk": 1,
+        "fields": {
+            "tipo_usuario": "Mujer"
+        }
+    },
+    {
+        "model": "a_inicio.tipo_usuario",
+        "pk": 2,
+        "fields": {
+            "tipo_usuario": "Hombre"
+        }
+    },
+    {
+        "model": "a_inicio.tipo_usuario",
+        "pk": 3,
+        "fields": {
+            "tipo_usuario": "Trans"
+        }
+    },
+    {
+        "model": "a_inicio.tipo_usuario",
+        "pk": 4,
+        "fields": {
+            "tipo_usuario": "Masajista"
+        }
+    }
+]

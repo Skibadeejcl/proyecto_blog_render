@@ -1,0 +1,6 @@
+[
+    {"model": "a_inicio.horario", "pk": 1, "fields": {"horario": "Mañana"}},
+    {"model": "a_inicio.horario", "pk": 2, "fields": {"horario": "Tarde"}},
+    {"model": "a_inicio.horario", "pk": 3, "fields": {"horario": "Noche"}},
+    {"model": "a_inicio.horario", "pk": 4, "fields": {"horario": "Full-time"}}
+]

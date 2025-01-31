@@ -1,0 +1,208 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% comment %} {% load watermark %} {% endcomment %}
+<br><br><br><br><br><br>
+
+<div class="container" style="padding-right: 20px; padding-left: 0px;">
+  <ul class="row col-xl-5 mx-auto">
+      <!-- Botón comienza con "Ver filtro" -->
+      <button id="toggleButton" class="btn bg-gradient bg-opacity-75" style="color:white; background-color: #9c9090;" 
+      onclick="myFunction()" type="button" data-toggle="collapse" data-target="#collapseExample" 
+      aria-expanded="false" aria-controls="collapseExample">Ver Buscador</button>
+  </ul>
+</div>
+
+<!-- Contenido comienza oculto -->
+<div class="toptexts3" id="myDIV" style="display: none;">
+  <form method="get" class="container rounded text-dark bg-gradient pt-3 pb-2 bg-opacity-50" style="background-color:#e5e9ec">
+      {% comment %} {{myFilter.form.as_p}} {% endcomment %}
+      
+      <div class="row">
+        <div class="form-group col-md-4 mb-0">
+          {{ myFilter.form.id_tipo_usuario|as_crispy_field }}
+      </div>
+        <div class="form-group col-md-4 mb-0">
+          {{ myFilter.form.nickname|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-4 mb-0">
+        {{ myFilter.form.id|as_crispy_field }}
+    </div>
+    </div>
+      
+    <div class="row">
+        <div class="form-group col-md-6 mb-0">
+          {{ myFilter.form.id_region|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-6 mb-0">
+          {{ myFilter.form.id_comuna|as_crispy_field }}
+      </div>
+  </div>
+
+      <div class="container text-center mt-4">
+          <button type="submit" class="btn btn-dark mx-2">Buscar</button>
+          <a class="btn btn-warning mx-2" href="{% url 'indexavisos' %}">Limpiar</a>
+      </div>
+  </form>
+</div>
+
+
+        
+<!-- ejemplo 2 -->
+<div class="container p-5">
+  <div class="row g-0">
+    {% for cliente in entity %}
+      <!-- Configuración explícita para cada tamaño de pantalla -->
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="card border-1 h-100 text-dark zoom" style="background:#ebbdc7;">
+          <a href="{% url 'cliente_detail' cliente.id %}">
+            <img class="card-img-top d-block w-100" src="{{ cliente.image_portada1.url }}" style="height: 10em">
+          </a>
+          <strong class="card-text text-capitalize rounded z-0 position-absolute bg-dark text-light bg-opacity-50 top-0 start-50 translate-middle-x mt-1 texto-home">
+            <h6 class="my-0">{{cliente.nickname}}</h6>
+          </strong>
+          <strong class="card-text text-capitalize rounded z-0 position-absolute bg-dark text-light bg-opacity-50 bottom-0 start-50 translate-middle-x mb-1 texto-home">
+            <h6 class="my-0">{{cliente.id_comuna.comuna}}</h6>
+          </strong>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+  {% include 'paginator.html' %}
+
+
+
+<!-- ejemplo 3 -->
+               <!-- <div class="container">
+                <div class="row g-4">
+                  {% for casa in entity %}
+  
+                  <div class="col-md-3 p-4 card-container">
+                    
+                    <div class="card card-flip">
+  
+                      <div class="front card-block">
+                        <div class="card border-0 h-100 bg-light text-dark">
+  
+                      
+                          {% comment %} <a href="{% url 'cliente_detail' casa.id %}"><img class="card-img-top d-block w-100" src="{{ casa.image_portada1.url|watermark:"watermark_logo,position=br,opacity=100" }}" style="height: 12em"></a> {% endcomment %}
+                          <h6 class="card-text rounded z-0 position-absolute bg-dark text-light bg-opacity-50 px-1 mt-1 mx-1">Código: {{casa.id}}</h6>
+                          <h6 class="card-text rounded z-0 position-absolute bg-dark text-light bg-opacity-50 px-1 mt-1 mx-1">Código: {{casa.id}}</h6>
+    
+                          <div class="card-body">
+                          <h5 class="card-title text-capitalize">{{ casa.estado }}</h5>
+                          <h6 class="card-text fw-light">{{ casa.id_comuna.comuna }},</h6>
+                          <h6 class="card-text fw-light">{{ casa.id_region.Region }}</h6>
+                        </div> -->
+                        <!-- <ul class="list-group list-group-flush"> -->
+                          <!-- <li> -->
+                            <!-- <hr class="" style="border-color:grey;"> -->
+                          <!-- </li> -->
+                          <!-- <li class="list-group-item ms-auto"> -->
+                            <!-- <h6 class="card-text fw-bold ms-auto">{{ casa.id_tipo_operacion.tipo_operacion }}</h6>
+                            <h3 class="card-text ms-auto">{{ casa.precio }}</h3>
+                            <a href="{% url 'cliente_detail' casa.id %}" class="btn btn-outline-secondary col-7 ms-auto me-2 mb-2">Más info</a> -->
+                          <!-- </li> -->
+                        <!-- </ul> -->
+                        
+                      <!-- </div>
+                      </div>
+  
+                      <div class="back card-block">
+                        <div class="card mb-4 text-dark">
+                          <div class="card-body">
+                              
+                              <ul class="list-unstyled list pl-5">
+                                  <li class="mb-3 d-flex align-items-center"><i class="fa fa-hashtag me-2 mr-3" style="color:#F28129"></i><strong>Código de propiedad: {{casa.id}}</strong></li>
+                                  <li class="mb-3 d-flex align-items-center"><i class="fa fa-adjust me-2 mr-3" style="color:#F28129"></i><strong>Estatus: En {{casa.id_tipo_operacion.tipo_operacion}}</strong></li>
+                                  <li class="mb-3 d-flex align-items-center"><i class="fa fa-home me-2 mr-3" style="color:#F28129"></i>Tipo propiedad: {{casa.id_tipo_cliente.tipo_cliente}}</li>
+                                  <li class="mb-3 d-flex align-items-center"><i class="fa fa-square me-2 mr-3" style="color:#F28129"></i>M<sup>2</sup>construidos: {{casa.m2_construido}}</li>
+                                  <li class="mb-3 d-flex align-items-center"><i class="fa fa-plus-square me-2 mr-3" style="color:#F28129"></i>M<sup>2</sup>de terreno: {{casa.m2_terreno}}</li>
+                                  <li class="mb-3 d-flex align-items-center"><i class="fa fa-bath me-2 mr-3" style="color:#F28129"></i>Baños: {{casa.numero_banos}}</li>
+                                  <li class="mb-3 d-flex align-items-center"><i class="fa fa-bed me-2 mr-3" style="color:#F28129"></i>Habitaciones: {{casa.numero_hab}}</li>
+                                  <li class="mb-3 d-flex align-items-center"><i class="fa fa-car me-2 mr-3" style="color:#F28129"></i>Estacionamientos: {{casa.numero_est}}</li>
+                                  <li class="mb-3 d-flex align-items-center"><i class="fas fa-dollar-sign me-2 mr-3" style="color:#F28129"></i><strong>Precio: {{casa.precio}}</strong></li>
+                              </ul>
+                            </div>
+                            <a href="{% url 'cliente_detail' casa.id %}" class="btn" style="background-color:#F28129">Click para más detalles</a>
+                          </div>
+                          </div>
+                      
+  
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+              {% include 'paginator.html' %} -->
+
+
+              <script>
+                function myFunction() {
+                    var x = document.getElementById("myDIV");
+                    var button = document.getElementById("toggleButton");
+
+                    // Alternar visibilidad del filtro
+                    if (x.style.display === "none") {
+                        x.style.display = "block"; // Muestra el contenido
+                        button.innerText = "Ocultar Buscador"; // Cambia el texto del botón
+                    } else {
+                        x.style.display = "none"; // Oculta el contenido
+                        button.innerText = "Ver Buscador"; // Cambia el texto del botón
+                    }
+                }
+
+                // Configuración inicial: ocultar o mostrar el filtro según corresponda
+                window.onload = function () {
+                    var x = document.getElementById("myDIV");
+                    var button = document.getElementById("toggleButton");
+
+                    // Verifica si el usuario llegó desde el enlace del navbar
+                    var fromNavbar = localStorage.getItem("fromNavbar");
+
+                    if (fromNavbar === "true") {
+                        // Caso de excepción: mostrar el filtro y ajustar el botón
+                        x.style.display = "block";
+                        button.innerText = "Ocultar Buscador";
+                        localStorage.removeItem("fromNavbar"); // Limpiar la bandera
+                    } else {
+                        // Configuración predeterminada: ocultar el filtro y ajustar el botón
+                        x.style.display = "none";
+                        button.innerText = "Ver Buscador";
+                    }
+                };
+
+                // Detectar clic en el enlace del navbar
+                document.getElementById("navbarFilterLink").addEventListener("click", function () {
+                    localStorage.setItem("fromNavbar", "true");
+                });
+
+                
+
+            
+                document.getElementById('id_region').addEventListener('change', function () {
+                  const regionId = this.value;
+                  const comunaSelect = document.getElementById('id_comuna');
+                  comunaSelect.innerHTML = '<option value="">Cargando...</option>';
+              
+                  fetch(`/ajax/load-comunas/?region_id=${regionId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                      comunaSelect.innerHTML = '<option value="">Seleccionar Comuna</option>';
+                      data.forEach(comuna => {
+                        const option = document.createElement('option');
+                        option.value = comuna.id;
+                        option.textContent = comuna.name;
+                        comunaSelect.appendChild(option);
+                      });
+                    })
+                    .catch(error => console.error('Error al cargar comunas:', error));
+                });
+          </script>
+
+{% endblock %}
+        
+

@@ -1,0 +1,75 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<br><br><br><br><br><br>
+
+<div class="container col-lg-5">
+  <div class="shadow p-3 mb-5 rounded text-center" style="background-color:#e5e9ec"></div>
+  <p class="shadow p-3 mb-5 rounded text-center fs-2" style="background-color:#e5e9ec">Publícate o Consulta</p>
+
+  <p><strong>Sitio  para mayores de 18 años. Si no tienes la edad requerida, por favor, no uses este sitio.</strong></p>
+  <p>Puedes solicitar tu publicación o realizar consultas a través del siguiente formulario.</p>
+  <p>Nuestro horario de atención para consultas, publicaciones y modificaciones es de lunes a viernes de 9:30 a 18:30hrs y sábado de 10:30 a 14:30hrs.</p>
+  
+<!-- </div> -->
+
+
+
+
+
+
+
+<!-- Contacto -->
+<!-- <div class="text-dark container-fluid py-4"> -->
+
+<!-- <div class="text-light bg-dark container-fluid py-4" id="contacto"> -->
+  <form action="" method="post" class="mb-3 text-center">
+      {% csrf_token %}
+
+      <!-- <h1 class="py-4 text-dark">¡Contáctanos!</h1> -->
+
+        <div class="text-dark">
+        </div>
+        <div class="d-grid gap-4 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto">
+          {{ form.nombre|as_crispy_field }}
+        </div>
+
+        <div class="text-dark">
+        </div>
+        <div class="d-grid gap-4 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto">
+          {{ form.telefono|as_crispy_field }}
+        </div>
+
+        <div class="text-dark">
+        </div>
+        <div class="d-grid gap-4 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto">
+          {{ form.correo|as_crispy_field }}
+        </div>
+
+        <div class="text-dark">
+        </div>
+        <div class="d-grid gap-4 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto">
+          {{ form.tipo_consulta|as_crispy_field }}
+        </div>
+
+        <div class="text-dark">
+        </div>
+        <div class="d-grid gap-4 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto">
+          {{ form.mensaje|as_crispy_field }}
+        </div>
+
+        {% if mensaje %}
+        <div class="container alert alert-success text-center mt-3 d-grid gap-4 col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" role="alert">
+          {{mensaje}}
+        </div>
+        {% else %}
+        
+        <button type="submit" id="btnEnviar" class="btn btn-dark mt-4 d-grid gap-1 col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 mx-auto">Enviar</button>
+        {% endif %}
+    </form>
+      
+    
+  </div>
+<!-- Fin Contacto -->
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<br><br><br><br><br>
+
+<div class="container">
+  <h1 class="py-3">Iniciar Sesión </h1>
+  <form method='POST'>
+    {% csrf_token %}
+    <fieldset class="form-group d-grid gap-4 col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 mx-auto">
+      {{ form|crispy }}
+    </fieldset>
+    
+    <div class="form-group">
+      <button type="submit" class="btn btn-dark mt-4 d-grid gap-2 col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 mx-auto">Iniciar sesión</button>
+    </div>
+
+    <p class="text-danger"><a href="{% url 'password_reset' %}" class="mt-4 d-grid gap-4 col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 mx-auto
+      link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">¿Ha olvidado su contraseña?</a>
+    </p>
+  </form>
+  
+  
+
+</div>
+{% endblock %}

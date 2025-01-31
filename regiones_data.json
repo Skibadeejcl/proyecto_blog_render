@@ -1,0 +1,18 @@
+[
+    {"model": "a_inicio.region", "pk": 1, "fields": {"Region": "Regi\u00f3n de Arica y Parinacota"}}, 
+    {"model": "a_inicio.region", "pk": 2, "fields": {"Region": "Regi\u00f3n de Tarapac\u00e1"}}, 
+    {"model": "a_inicio.region", "pk": 3, "fields": {"Region": "Regi\u00f3n de Antofagasta"}}, 
+    {"model": "a_inicio.region", "pk": 4, "fields": {"Region": "Regi\u00f3n de Atacama"}}, 
+    {"model": "a_inicio.region", "pk": 5, "fields": {"Region": "Regi\u00f3n de Coquimbo"}}, 
+    {"model": "a_inicio.region", "pk": 6, "fields": {"Region": "Regi\u00f3n de Valpara\u00edso"}}, 
+    {"model": "a_inicio.region", "pk": 7, "fields": {"Region": "Regi\u00f3n del Libertador Gral. Bernardo O\u2019Higgins"}}, 
+    {"model": "a_inicio.region", "pk": 8, "fields": {"Region": "Regi\u00f3n del Maule"}}, 
+    {"model": "a_inicio.region", "pk": 9, "fields": {"Region": "Regi\u00f3n de \u00d1uble"}}, 
+    {"model": "a_inicio.region", "pk": 10, "fields": {"Region": "Regi\u00f3n del Biob\u00edo"}}, 
+    {"model": "a_inicio.region", "pk": 11, "fields": {"Region": "Regi\u00f3n de la Araucan\u00eda"}}, 
+    {"model": "a_inicio.region", "pk": 12, "fields": {"Region": "Regi\u00f3n de Los R\u00edos"}}, 
+    {"model": "a_inicio.region", "pk": 13, "fields": {"Region": "Regi\u00f3n de Los Lagos"}}, 
+    {"model": "a_inicio.region", "pk": 14, "fields": {"Region": "Regi\u00f3n Ais\u00e9n"}}, 
+    {"model": "a_inicio.region", "pk": 15, "fields": {"Region": "Regi\u00f3n de Magallanes y de la Ant\u00e1rtica Chilena"}}, 
+    {"model": "a_inicio.region", "pk": 16, "fields": {"Region": "Regi\u00f3n Metropolitana"}}
+]

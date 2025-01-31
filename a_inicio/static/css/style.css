@@ -1,0 +1,562 @@
+
+  /* body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cabin', sans-serif;
+  } */
+ 
+
+  .ancho_central{
+    padding-left: 5.1em;
+    padding-right: 5.1em;
+  }
+
+  .carousel-indicators {
+    margin-bottom: -2.5em;
+  }
+
+
+/* 
+  footer {
+    background-color: black;
+    color: white;
+    padding: 0.5em;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:30px;
+    width:100%;
+  } */
+
+
+/* Arreglo footer */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 180px;
+  min-height: 100vh;
+
+  /*Fondo foto negro*/
+  /* height: 400px; */
+  /* background-image: url("https://images.unsplash.com/photo-1607457561901-e6ec3a6d16cf?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; */
+  /*fin fondo foto negra*/
+}
+
+/* arreglo footer */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 165px;
+  /* height: 110px; */
+  background-color: #a51515;
+  margin-top: 120px;
+}
+/* fin arreglo footer */
+
+
+
+/* Galería Inmuebles */
+/* .photo-gallery {
+  color:#313437;
+  background-color:#fff;
+}
+
+.photo-gallery p {
+  color:#7d8285;
+}
+
+.photo-gallery h2 {
+  font-weight:bold;
+  margin-bottom:40px;
+  padding-top:40px;
+  color:inherit;
+}
+
+@media (max-width:767px) {
+  .photo-gallery h2 {
+    margin-bottom:25px;
+    padding-top:25px;
+    font-size:24px;
+  }
+}
+
+.photo-gallery .intro {
+  font-size:16px;
+  max-width:500px;
+  margin:0 auto 40px;
+}
+
+.photo-gallery .intro p {
+  margin-bottom:0;
+}
+
+.photo-gallery .photos {
+  padding-bottom:20px;
+}
+
+.photo-gallery .item {
+  padding-bottom:30px;
+} */
+/* fin Galería Inmuebles */
+
+
+
+
+
+
+
+/* Carousell multiple portada */
+/* #myCarousel {
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .carousel-inner .carousel-item>div {
+      display: none;
+  }
+
+  .carousel-inner .carousel-item>div:first-child {
+      display: block;
+  }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-start,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+  display: flex;
+}
+
+@media (min-width: 768px) {
+
+  .carousel-inner .carousel-item-right.active,
+  .carousel-inner .carousel-item-next,
+  .carousel-item-next:not(.carousel-item-start) {
+      transform: translateX(25%) !important;
+  }
+
+  .carousel-inner .carousel-item-left.active,
+  .carousel-item-prev:not(.carousel-item-end),
+  .active.carousel-item-start,
+  .carousel-item-prev:not(.carousel-item-end) {
+      transform: translateX(-25%) !important;
+  }
+
+  .carousel-item-next.carousel-item-start,
+  .active.carousel-item-end {
+      transform: translateX(0) !important;
+  }
+
+  .carousel-inner .carousel-item-prev,
+  .carousel-item-prev:not(.carousel-item-end) {
+      transform: translateX(-25%) !important;
+  }
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  filter: invert(90%);
+} */
+/* Fin Carousell multiple portada */
+
+
+/* slogan y logo effect */
+.toptexts2 {
+  animation: fadeEffect 6s; /* fading effect takes 3s */
+}
+
+@keyframes fadeEffect { /* from 0 to full opacity */
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+/* fin slogan y logo effect */
+
+/* Filtro effect */
+.toptexts3 {
+  animation: fadeEffect 1.6s; /* fading effect takes 3s */
+}
+
+@keyframes fadeEffect { /* from 0 to full opacity */
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+/* fin Filtro effect */
+
+
+/* reveal effect */
+/* .reveal {
+  position: relative;
+  opacity: 0;
+}
+
+.reveal.active {
+  opacity: 1;
+}
+.active.fade-bottom {
+  animation: fade-bottom 1s ease-in;
+}
+.active.fade-left {
+  animation: fade-left 1s ease-in;
+}
+.active.fade-right {
+  animation: fade-right 1s ease-in;
+}
+@keyframes fade-bottom {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-left {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-right {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+} */
+/* fin reveal effect */
+
+/* Whatsapp */
+/* .btn-wsp{
+  position:fixed;
+  width:56px;
+  height:56px;
+  line-height: 59px;
+  bottom:30px;
+  right:30px;
+  background:#25d366;
+  color:#FFF;
+  border-radius:50px;
+  text-align:center;
+  font-size:35px;
+  box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
+  z-index:100;
+  transition: all 300ms ease;
+}
+.btn-wsp:hover{
+  background: #20ba5a;
+}
+@media only screen and (min-width:320px) and (max-width:768px){
+  .btn-wsp{
+      width:56px;
+      height:56px;
+      line-height: 59px;
+}
+} */
+/* Fin Whatsapp */
+
+
+/* Tooltip wsp */
+.custom-tooltip {
+  --bs-tooltip-bg: var(--bs-light);
+}
+
+/* Tamaño video portada */
+video {
+  right: 0;
+  min-width: 101%;
+}
+/* Fin tamaño video */
+
+/* Navbar appear */
+/* .fixed-top.scrolled {
+  background-color: black !important;
+  transition: background-color 200ms linear;
+} */
+
+/* .fixed-top.scrolled .nav-link {
+  color:white;
+} */
+/* Fin Navbar appear */
+
+/* sin borde dropdown */
+.no-border {
+  border: 0;
+  box-shadow: none;
+}
+/* fin sin borde dropdown */
+
+/* Scroll ajustado Dropdown */
+html {
+  scroll-padding-top: 40px;
+}
+/* Fin Scroll ajustado Dropdown */
+
+/* Dropdown hover */
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown>.dropdown-toggle:active {
+  /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+/* Fin Dropdown hover */
+
+
+/* Transición Carousel */
+
+/* @keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 7));
+  }
+} */
+
+/* .carousel-item {
+  transition: transform 2s ease-in-out;
+} */
+  /* animation: scroll 10s linear infinite;
+    display: flex; */
+
+/* Fin Transición Carousel */
+
+
+.fuente_footer{
+  font-family: 'Questrial', cursive;
+  font-size: 40px;
+  }
+
+.fuente_navbartitulo{
+  font-family: 'Questrial';
+  font-size: 27px;
+  color: rgb(183, 183, 183);
+  }
+
+  .fuente_userportada{
+    font-family: 'Questrial';
+    /* font-size: 10px; */
+    color: rgb(183, 183, 183);
+    }
+
+
+  /* @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-250px * 7));
+    }
+  }
+
+  .slide-track {
+    animation: scroll 10s linear infinite;
+    display: flex;
+  } */
+
+
+
+
+
+
+  /* .card-block .btn-outline-primary {
+    width: 100%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+  } */
+  
+  .card {
+    border-radius: 0% !important;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .card-img-top {
+    border-radius: 0% !important;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  
+ 
+
+
+
+
+/* botones carousel */
+  /* .carousel-control-prev , .carousel-control-next {
+    position: absolute;
+    top: 70%;
+    transform: TranslateY(-50%);
+ }
+
+ .carousel-control-prev {
+  right: auto;
+  left: -10px;
+}
+.carousel-control-next {
+  left: auto;
+  right: 5px;
+}
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2300E3FF' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+ }
+ 
+ .carousel-control-next-icon {
+   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2300E3FF' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+ } */
+
+
+
+ /* Pagination color */
+
+ .page-item.active .page-link {
+  color: black !important;
+  background: white !important;
+}
+
+.page-item .page-link {
+  color: black !important;
+  border-color: black;
+}
+
+/* .zoom {
+  transition: transform .2s; 
+}
+
+.zoom:hover {
+  transform: scale(1.05); 
+} */
+
+/* .img-borde{
+  border: violet 7px solid !important;
+} */
+
+.responsive-video {
+  width: 100px !important;
+  height: auto; /* Mantener proporción */
+  max-width: 100%; /* Escalar en pantallas pequeñas */
+  border: 2px solid #ccc; /* Opcional: agregar un borde */
+  border-radius: 8px; /* Opcional: esquinas redondeadas */
+}
+
+.texto-home{
+  /* font-weight:bolder !important; */
+  -webkit-text-stroke-width: 0.1px;
+  -webkit-text-fill-color: white !important;
+  -webkit-text-stroke-color: black !important;
+}
+
+.bi:hover {
+  color: white;
+  transform: scale(1.3); /* Scale up the button */
+}
+
+
+
+/* .gallery {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+} */
+
+/* .gallery a {
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+} */
+
+.gallery a:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+
+/* .gallery img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+} */
+
+
+/* .fancybox__container {
+  display: none !important; 
+} */
+
+/* .fancybox__image {
+  max-width: 100% !important;
+  max-height: 100% !important;
+} */
+
+/* body {
+  overflow: auto !important; 
+}  */
+
+
+/* Botón flotante */
+.share-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: white; /* Blanco y negro como querías */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Asegura que esté encima del footer */
+}
+
+/* Menú de compartir */
+.share-menu {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.share-menu a {
+  text-decoration: none;
+  color: #333;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.share-menu a:hover {
+  background: #f1f1f1;
+}

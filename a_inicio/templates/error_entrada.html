@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<br><br><br><br>
+<div class="container">
+    <!-- <h1>Acceso prohibido</h1> -->
+    <h1>{{ message }}</h1>
+
+    <ul class="row col-7 mx-auto pt-4 mb-5">
+        <a href="{% url 'dashboard' %}" class="btn btn-primary mt-4 col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 mx-auto">Ver Perfil</a>
+    </ul>
+</div>
+
+{% endblock %}

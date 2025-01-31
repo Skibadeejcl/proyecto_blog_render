@@ -1,0 +1,101 @@
+[
+    {
+        "model": "a_inicio.tipo_nation",
+        "pk": 1,
+        "fields": {
+            "tipo_nation": "Chilena"
+        }
+    },
+    {
+        "model": "a_inicio.tipo_nation",
+        "pk": 2,
+        "fields": {
+            "tipo_nation": "Venezolana"
+        }
+    },
+    {
+        "model": "a_inicio.tipo_nation",
+        "pk": 3,
+        "fields": {
+            "tipo_nation": "Colombiana"
+        }
+    },
+    {
+        "model": "a_inicio.tipo_nation",
+        "pk": 4,
+        "fields": {
+            "tipo_nation": "Argentina"
+        }
+    },
+    {
+        "model": "a_inicio.tipo_nation",
+        "pk": 5,
+        "fields": {
+            "tipo_nation": "Peruana"
+        }
+    },
+    {
+        "model": "a_inicio.tipo_nation",
+        "pk": 6,
+        "fields": {
+            "tipo_nation": "Dominicana"
+        }
+    },
+    {
+        "model": "a_inicio.tipo_nation",
+        "pk": 7,
+        "fields": {
+            "tipo_nation": "Ecuatoriana"
+        }
+    },
+    {
+        "model": "a_inicio.tipo_nation",
+        "pk": 8,
+        "fields": {
+            "tipo_nation": "Boliviana"
+        }
+    },
+    {
+        "model": "a_inicio.tipo_nation",
+        "pk": 9,
+        "fields": {
+            "tipo_nation": "Uruguaya"
+        }
+    },
+    {
+        "model": "a_inicio.tipo_nation",
+        "pk": 10,
+        "fields": {
+            "tipo_nation": "Paraguaya"
+        }
+    },
+    {
+        "model": "a_inicio.tipo_nation",
+        "pk": 11,
+        "fields": {
+            "tipo_nation": "Brasileña"
+        }
+    },
+    {
+        "model": "a_inicio.tipo_nation",
+        "pk": 12,
+        "fields": {
+            "tipo_nation": "Mexicana"
+        }
+    },
+    {
+        "model": "a_inicio.tipo_nation",
+        "pk": 13,
+        "fields": {
+            "tipo_nation": "Española"
+        }
+    },
+    {
+        "model": "a_inicio.tipo_nation",
+        "pk": 14,
+        "fields": {
+            "tipo_nation": "Otra"
+        }
+    }
+]
+    

@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<br><br><br><br><br><br>
+<!-- Contacto -->
+<div class="text-light container py-4">
+    <form action="" method="post" class="mb-3">
+      {% csrf_token %}
+
+      <h1 class="py-4">Crear nuevo usuario</h1>
+                              
+        <div class="text-center text-dark">RUT, DNI o N° Pasaporte (Será Verificado)*               <!-- cambiar por "RUT, DNI o N° Pasaporte" (sacar lógica de comprobación de RUT) -->
+        </div>
+        <input class="d-grid gap-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 mx-auto rounded-1" type="text" id="rut" name="rut" required placeholder="Ingrese datos con guión, si su documento lo posee."></input>
+        </input>
+
+        <!-- <div class="text-center">Yo Soy (Seleccionar)*
+        </div>
+        <div class="d-grid gap-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 mx-auto">
+          {{ form.id_tipo_usuario }}
+        </div> -->
+
+        <!-- <div class="text-center">Teléfono*
+        </div>
+        <div class="d-grid gap-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 mx-auto">
+          {{ form.telefono }}
+        </div> -->
+        
+        <button type="submit" id="btnEnviar" class="btn btn-dark mt-4 d-grid gap-1 col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 mx-auto">Registrar</button>
+    </form>
+      
+    
+  </div>
+<!-- Fin Contacto -->
+
+{% endblock %}
+
+
+<!-- {% comment %} {% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<br><br><br><br><br>
+
+<div class="container">
+  <h1>Crear nuevo usuario </h1>
+  <form method='POST'>
+    {% csrf_token %}
+    <fieldset class="form-group d-grid gap-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 mx-auto">
+      {{ form|crispy }}
+    </fieldset>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-success mt-4 d-grid gap-2 col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 mx-auto">Registrar</button>
+    </div>
+
+  </form>
+</div>
+{% endblock %} {% endcomment %} -->

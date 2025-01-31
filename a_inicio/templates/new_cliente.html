@@ -1,0 +1,192 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<br><br><br><br><br><br>
+
+<div class="container">
+  <h1>Por favor, ingresa los datos solicitados</h1>
+  <form method='POST' enctype="multipart/form-data">
+    {% csrf_token %}
+    <!-- <fieldset class="form-group d-grid gap-3 col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 mx-auto">
+      {{ u_form|crispy }}
+    </fieldset> -->
+    {% if request.user.is_superuser %}
+    <div class="row">
+      <div class="form-group text-primary col-md-4 mb-3">
+        {{ u_form.mostrar|as_crispy_field }}
+      </div>
+    </div>
+    {% endif %}
+
+
+    <div class="row">
+      <div class="form-group text-success col-md-6 mb-0">
+        {{ u_form.id_tipo_usuario|as_crispy_field }}
+      </div>
+      <div class="form-group text-success col-md-6 mb-0">
+        {{ u_form.id_tipo_nation|as_crispy_field }}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group text-success col-md-6 mb-0">
+        {{ u_form.id_region|as_crispy_field }}
+        <!-- <select id="id_region" class="form-control">
+          Opciones cargadas automáticamente por Django
+        </select> -->
+      </div>
+      <div class="form-group text-success col-md-6 mb-0">
+        {{ u_form.id_comuna|as_crispy_field }}
+        <!-- <select id="id_comuna" class="form-control">
+          <option value="">Seleccionar Comuna</option>
+        </select> -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group text-success col-md-6 mb-0">
+        {{ u_form.nickname|as_crispy_field }}
+      </div>
+      <div class="form-group text-success col-md-6 mb-0">
+        {{ u_form.telefono|as_crispy_field }}
+      </div>
+    </div>
+    
+    {{ u_form.descripcion|as_crispy_field }}
+
+    <div class="row">
+      <div class="form-group text-success col-md-6 mb-0">
+        {{ u_form.id_dias_lab|as_crispy_field }}
+      </div>
+      <div class="form-group text-success col-md-6 mb-0">
+        {{ u_form.id_horario|as_crispy_field }}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group text-success col-md-4 mb-0">
+        {{ u_form.medida_alta|as_crispy_field }}
+      </div>
+      <div class="form-group text-success col-md-4 mb-0">
+        {{ u_form.medida_media|as_crispy_field }}
+      </div>
+      <div class="form-group text-success col-md-4 mb-0">
+        {{ u_form.medida_baja|as_crispy_field }}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group text-success col-md-6 mb-0">
+        {{ u_form.estatura|as_crispy_field }}
+      </div>
+      <div class="form-group text-success col-md-6 mb-0">
+        {{ u_form.ubicacion|as_crispy_field }}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group text-success col-md-6 mb-0">
+        {{ u_form.metro|as_crispy_field }}
+      </div>
+      <div class="form-group text-success col-md-6 mb-0">
+        {{ u_form.edad|as_crispy_field }}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group text-success col-md-4 mb-0">
+        {{ u_form.tarifa|as_crispy_field }}
+      </div>
+      <div class="form-group text-success col-md-4 mb-0">
+        {{ u_form.id_servicio|as_crispy_field }}
+      </div>
+      <div class="form-group text-success col-md-4 mb-0">
+        {{ u_form.servicios_add|as_crispy_field }}
+      </div>
+    </div>
+
+    <div class="form-group text-success col-md-4 mb-3 mx-auto">
+      {{ u_form.video_file|as_crispy_field }}
+    </div>    
+
+    <div class="row">
+      <div class="form-group text-success col-md-4 mb-3">
+        {{ u_form.image_portada1|as_crispy_field }}
+      </div>
+      <div class="form-group text-success col-md-4 mb-3">
+        {{ u_form.image1|as_crispy_field }}
+      </div>
+      <div class="form-group text-success col-md-4 mb-3">
+        {{ u_form.image2|as_crispy_field }}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group text-success col-md-4 mb-3">
+        {{ u_form.image3|as_crispy_field }}
+      </div>
+      <div class="form-group text-success col-md-4 mb-3">
+        {{ u_form.image4|as_crispy_field }}
+      </div>
+      <div class="form-group text-success col-md-4 mb-3">
+        {{ u_form.image5|as_crispy_field }}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group text-success col-md-4 mb-3">
+        {{ u_form.image6|as_crispy_field }}
+      </div>
+      <div class="form-group text-success col-md-4 mb-3">
+        {{ u_form.image7|as_crispy_field }}
+      </div>
+      <div class="form-group text-success col-md-4 mb-3">
+        {{ u_form.image8|as_crispy_field }}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group text-success col-md-4 mb-3">
+        {{ u_form.image9|as_crispy_field }}
+      </div>
+      <div class="form-group text-success col-md-4 mb-3">
+        {{ u_form.image10|as_crispy_field }}
+      </div>
+    </div>
+  </div>
+
+    
+    
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-dark mt-4 d-grid gap-2 col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 mx-auto">
+        Publicar</button>
+    </div>
+  </form>
+</div>
+
+
+<script>
+  document.getElementById('id_region').addEventListener('change', function () {
+    const regionId = this.value;
+    const comunaSelect = document.getElementById('id_comuna');
+    comunaSelect.innerHTML = '<option value="">Cargando...</option>';
+
+    fetch(`/ajax/load-comunas/?region_id=${regionId}`)
+      .then(response => response.json())
+      .then(data => {
+        comunaSelect.innerHTML = '<option value="">Seleccionar Comuna</option>';
+        data.forEach(comuna => {
+          const option = document.createElement('option');
+          option.value = comuna.id;
+          option.textContent = comuna.name;
+          comunaSelect.appendChild(option);
+        });
+      })
+      .catch(error => console.error('Error al cargar comunas:', error));
+  });
+</script>
+
+
+
+{% endblock %}

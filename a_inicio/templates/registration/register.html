@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<br><br><br><br><br><br>
+
+<div class="container text-center">
+  <h1>¡Publícate con nosotros!</h1>
+  <form method='POST' class="text-center">
+    {% csrf_token %}
+    <fieldset class="form-group d-grid gap-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 mx-auto">
+      {{ form|crispy }}
+    </fieldset>
+    
+    <div class="form-group">
+      <button type="submit" class="btn btn-success mt-4 d-grid gap-2 col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 mx-auto">Continuar</button>
+    </div>
+    
+  </form>
+</div>
+{% endblock %}

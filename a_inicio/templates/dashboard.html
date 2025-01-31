@@ -1,0 +1,97 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% comment %} {% load watermark %} {% endcomment %}
+<br><br><br><br><br><br>
+
+<div class="container">
+  <h1 class="text-capitalize text-dark"> Bienvenid@ {{user.first_name}} {{user.last_name}} </h1> 
+  <h5 class="text-dark"> Usuario: {{user.username}} ({{user.email}}) </h5>
+  <a class="btn btn-outline-primary btn-sm" href="{% url 'update_profile' %}">Actualizar Correo</a>
+  <div class="row">
+    <!-- <ul class="col-4 mx-auto pt-4">
+      <a class="btn btn-primary btn-lg" href="{% url 'update_profile' %}">Editar perfil de usuario</a>
+    </ul> -->
+    {% comment %} <!-- {% if user.is_authenticated and user.is_superuser %} --> {% endcomment %}
+    <ul class="row col-xl-2 mx-auto pt-4 mb-5">
+      <a class="btn btn-lg text-light fw-bold" href="{% url 'new_cliente_url' %}" style="background-color:black">Nueva entrada</a>
+    </ul>
+    {% if user.is_superuser %}
+    <ul class="row col-xl-2 mx-auto pt-4 mb-5">
+      <a class="btn btn-lg text-light fw-bold" href="{% url 'lista_clientes' %}" target="_blank" style="background-color:#f22929">Lista Clientes</a>
+    </ul>
+    {% endif %}
+    {% comment %} <!-- {% endif %} --> {% endcomment %}
+  
+    {% if request.user.is_superuser %}
+    <h1 class="mt-4">Usuario: {{current_user.username}}</h1>
+    <h1 class="text-capitalize">Nombre: {{current_user.first_name}} {{current_user.last_name}}</h1>
+    {% endif %}
+    
+  <!-- <h4 class="text-info">Gracias por confiar en nosotros. 
+    Su publicación será brevemente revisada por nuestro equipo, antes de ser agregada públicamente.</h4> -->
+
+
+  <h3 class="pt-4 pb-2"><u>Perfil Publicado:</u></h3>
+</div>
+
+  <div class="table-responsive-md">
+  <table class="table">
+    <thead class="text-dark">
+      <tr>
+        <th><h5>Foto Principal</h5></th>
+        <th><h5>Perfil Activado</h5></th>
+        <th><h5>Seudónimo</h5></th>
+        <!-- <th class="text-center"><h5>Foto Principal</h5></th> -->
+        <!-- <th><h5>Ubicación</h5></th> -->
+        <!-- <th><h5>Comuna/Región</h5></th> -->
+        <!-- <th><h5>Operación</h5></th> -->
+        <th><h5>Estado</h5></th>
+        <th colspan="2"><h5>Editar</h5></th>
+      </tr>
+    </thead>
+  
+  {% for product in clientes %}
+  
+    <tr class="text-dark">
+      <tr class="text-dark">
+        <td ><a href="{% url 'cliente_detail' product.id %}"><img src="{{ product.image_portada1.url }}" alt="imagen" width="280" height="180"></a></td>
+        <td class="mb-3">
+          {% if product.mostrar == True %}
+          <h3 class="text-success"><strong>Sí</strong></h3>
+          {% else %}
+          <h3><strong class="text-danger">No</strong></h3>
+          {% endif %}
+          
+      </td>
+        <td class="text-capitalize"><h5><strong>{{product.nickname}}</h5></td>
+        <td><h5><strong>{{product.estado|default:"Disponible"}}</h5></td>
+        <!-- <td><h5>{{ product.id_comuna.comuna }}, {{ product.id_region.Region }}</h5></td> -->
+        <!-- <td><h5>{{ product.id_tipo_operacion.tipo_operacion }}</h5></td> -->
+        <!-- <td><h5>{{ product.descripcion }}</h5></td> -->
+        <td><a class="btn btn-block btn-success btn-sm" href="/update_cliente?id_cliente={{ product.id }}"> Editar</a></td>
+        {% if user.is_superuser %}
+        <td><a class="btn btn-block btn-danger btn-sm btnEliminacion" href="/eliminar_cliente?id_cliente={{ product.id }}"> Borrar</a></td>
+        {% endif %}
+      </tr>
+      {% endfor %}
+      
+    </tr>
+</table>
+</div>
+
+
+
+  <!-- <div class="row col-6 mx-auto"> -->
+    <!-- <ul class="col-3 mx-auto pt-4"> -->
+      <ul class="row col-7 mx-auto pt-4 mb-5">
+      <a href="{% url 'home' %}" class="btn btn-dark mt-4 col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 mx-auto">Ver Portada</a>
+      </ul>
+    <!-- </ul> -->
+    <!-- <ul class="col-3 mx-auto pt-4">
+      <a class="btn btn-secondary text-white" href="{% url 'logout' %}">Cerrar sesión</a>
+    </ul> -->
+  </div>
+
+  
+
+{% endblock %}

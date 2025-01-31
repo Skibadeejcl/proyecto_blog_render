@@ -1,0 +1,4 @@
+[
+    {"model": "a_inicio.servicio", "pk": 1, "fields": {"servicio": "Normal"}},
+    {"model": "a_inicio.servicio", "pk": 2, "fields": {"servicio": "Completo"}}
+]

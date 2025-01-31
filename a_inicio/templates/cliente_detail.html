@@ -1,0 +1,544 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% load static %}
+{% comment %} <!-- {% load watermark %} --> {% endcomment %}
+<br><br><br><br><br>
+
+<!-- <div class="container ">
+    <h2 class="text-capitalize">{{clientes.id_user.first_name}} {{clientes.id_user.last_name}} ({{clientes.id_user}})</h2> -->
+    <!-- <h2 class="mt-4 text-capitalize">Ubicación // {{clientes.estado}}</h2> -->
+    <!-- <h3 class="my-2 h5 text-light">{{clientes.id_comuna.comuna}}, {{clientes.id_region.Region}}</h3> -->
+    <!-- <h5 class="">Código: {{clientes.id}}</h5> -->
+<!-- </div> -->
+
+
+<section class="container mt-5" style="width:100%;">
+
+    <div class="container mb-5">
+      <!-- <h2 class="text-capitalize text-center">{{clientes.id_user.first_name}} {{clientes.id_user.last_name}} ({{clientes.id_user}}) / {{clientes.nickname}}</h2> -->
+      <strong><h1 class="text-capitalize text-danger-emphasis text-center display-2">{{clientes.nickname}}</h1></strong>
+
+      {% if request.user.is_superuser %}
+    <div class="col-12 text-center mt-4">
+      
+        {% if clientes.mostrar == True %}
+        <h3>Mostrar:<strong class="text-success"> Sí</strong></h3>
+        {% else %}
+        <h3>Mostrar:<strong class="text-danger"> No</strong></h3>
+        {% endif %}
+        
+    
+        <a href="{% url 'dashboard' user_id=clientes.id_user.id %}" class="btn btn-primary">
+            Ver Perfil del usuario
+        </a>
+    </div>
+{% endif %}
+
+      
+      <!-- <h2 class="mt-4 text-capitalize">Ubicación // {{clientes.estado}}</h2> -->
+      <!-- <h3 class="my-2 h5 text-light">{{clientes.id_comuna.comuna}}, {{clientes.id_region.Region}}</h3> -->
+      <!-- <h5 class="">Código: {{clientes.id}}</h5> -->
+    </div>
+
+  <!-- <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 col-xl-5">
+      <h2 class="text-dark text-capitalize mx-auto">{{clientes.estado|default:""}}</h2>
+      <h5 class="text-dark text-capitalize mx-auto">Última actualización: {{clientes.last_updated}}</h5>
+
+      {% if clientes.image_estado %}
+      <a href="{{clientes.image_estado.url}}" data-fancybox="gallery" class="col-xs-4 col-sm-4 col-md-4 col-lg-5 col-xl-5">
+        <img src="{{ clientes.image_estado.url}}" class="img-fluid pb-3 mx-auto d-block" style="height: 60%; width:60%;">
+      </a>
+      {% else %}
+      {% endif %}
+
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7 col-xl-7">
+      {% comment %} {% if user.is_authenticated and user.id == clientes.id %} {% endcomment %}
+      {% if user.is_authenticated and user.id == clientes.id or user.is_superuser %}
+      <ul class="row col-5 pt-4 mb-5">
+        <a href="{% url 'cliente_detail_edit' clientes.id %}" class="btn btn-primary col-xs-2 col-sm-2 col-md-2 col-lg-6 col-xl-6">Editar Estado</a>
+      </ul>
+      {% endif %}
+    </div>
+  </div> -->
+
+  <!-- blog/view_entry.html -->
+<!-- <h1>{{ cliente.title }}</h1> -->
+{% comment %} <!-- {% for cliente in clientes %} --> {% endcomment %}
+{% comment %} <p><strong>State:</strong> {{ cliente.estado }} (updated on: {{ cliente.last_updated }})</p> {% endcomment %}
+{% comment %} <!-- {% endfor %} --> {% endcomment %}
+<!-- <p>{{ cliente.content }}</p> -->
+
+<!-- <form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Update State</button>
+</form> -->
+
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7 col-xl-7">
+
+      <div class="row gallery">
+
+        {% if clientes.video_file %}
+        <video controls class="pb-3" style="height: 100%; width:100%;">
+        <source src="{{ clientes.video_file.url }}" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
+        {% else %}
+        {% endif %}
+
+        <a href="{{ clientes.image_portada1.url }}" data-fancybox="gallery" data-caption="Imagen Portada" class="col-sm-4">
+          <img src="{{ clientes.image_portada1.url }}" alt="Imagen 1" class="img-fluid" style="height: 100%; width:100%;">
+      </a>
+        
+        {% if clientes.image1 %}
+        <a href="{{clientes.image1.url}}" data-fancybox="gallery" data-caption="Imagen 1" class="col-sm-4">
+        <img src="{{clientes.image1.url}}" class="img-fluid" style="height: 100%; width:100%;">
+      </a>
+        {% else %}
+        
+        {% endif %}
+
+      {% if clientes.image2 %}
+        <a href="{{clientes.image2.url}}" data-fancybox="gallery" data-caption="Imagen 2" class="col-sm-4">
+        <img src="{{clientes.image2.url}}" class="img-fluid" style="height: 100%; width:100%;">
+      </a>
+        {% else %}
+        
+        {% endif %}
+
+      </div>
+    
+    <div class="row mt-4 gallery">
+
+      {% if clientes.image3 %}
+        <a href="{{clientes.image3.url}}" data-fancybox="gallery" data-caption="Imagen 3" class="col-sm-4">
+        <img src="{{clientes.image3.url}}" class="img-fluid" style="height: 100%; width:100%;">
+      </a>
+        {% else %}
+        
+        {% endif %}
+
+      {% if clientes.image4 %}
+        <a href="{{clientes.image4.url}}" data-fancybox="gallery" data-caption="Imagen 4" class="col-sm-4">
+        <img src="{{clientes.image4.url}}" class="img-fluid" style="height: 100%; width:100%;">
+      </a>
+      {% else %}
+        
+        {% endif %}
+
+      
+      {% if clientes.image5 %}
+        <a href="{{clientes.image5.url}}" data-fancybox="gallery" data-caption="Imagen 5" class="col-sm-4">
+        <img src="{{clientes.image5.url}}" class="img-fluid" style="height: 100%; width:100%;">
+      </a>
+        {% else %}
+        
+        {% endif %}
+    </div>
+    
+    <div class="row mt-4 gallery">
+        {% if clientes.image6 %}
+        <a href="{{clientes.image6.url}}" data-fancybox="gallery" data-caption="Imagen 6" class="col-sm-4">
+        <img src="{{clientes.image6.url}}" class="img-fluid" style="height: 100%; width:100%;">
+      </a>
+        {% else %}
+        
+        {% endif %}
+    
+        {% if clientes.image7 %}
+        <a href="{{clientes.image7.url}}" data-fancybox="gallery" data-caption="Imagen 7" class="col-sm-4">
+        <img src="{{clientes.image7.url}}" class="img-fluid" style="height: 100%; width:100%;">
+      </a>
+        {% else %}
+        
+        {% endif %}
+    
+        {% if clientes.image8 %}
+        <a href="{{clientes.image8.url}}" data-fancybox="gallery" data-caption="Imagen 8" class="col-sm-4">
+        <img src="{{clientes.image8.url}}" class="img-fluid" style="height: 100%; width:100%;">
+      </a>
+        {% else %}
+        
+        {% endif %}
+    </div>
+    
+    <div class="row mt-4 gallery">
+        {% if clientes.image9 %}
+        <a href="{{clientes.image9.url}}" data-fancybox="gallery" data-caption="Imagen 9" class="col-sm-4">
+        <img src="{{clientes.image9.url}}" class="img-fluid" style="height: 100%; width:100%;">
+      </a>
+        {% else %}
+        
+        {% endif %}
+    
+        {% if clientes.image10 %}
+        <a href="{{clientes.image10.url}}" data-fancybox="gallery" data-caption="Imagen 10" class="col-sm-4">
+        <img src="{{clientes.image10.url}}" class="img-fluid" style="height: 100%; width:100%;">
+      </a>
+        {% else %}
+        
+        {% endif %}
+    </div>
+
+      </div>
+
+
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 col-xl-5">
+        
+          <div class="container">
+
+            <div class="gallery col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+              
+              
+              {% if clientes.image_estado %}
+              <a href="{{clientes.image_estado.url}}" data-fancybox="gallery" data-caption="{{clientes.estado|default:'Disponible'}}" class="col-xs-4 col-sm-4 col-md-4 col-lg-5 col-xl-5">
+                <img src="{{ clientes.image_estado.url}}" class="img-fluid mx-auto d-block" style="height: 100%; width:100%;">
+              </a>
+              {% else %}
+              {% endif %}
+            </div>
+              <h2 class="text-dark mx-auto text-center">{{clientes.estado|default:"Disponible"}}</h2>
+              <h5 class="text-dark text-capitalize mx-auto">Última actualización: {{clientes.last_updated}}</h5>
+        
+            
+
+            <!-- {% if user.is_authenticated and user.id == clientes.id_user.id %}
+                <ul class="row col-5 pt-4 mb-5 mx-auto">
+                    <a href="{% url 'cliente_detail_edit' clientes.id %}" class="btn btn-primary col-xs-2 col-sm-2 col-md-2 col-lg-9 col-xl-9">Editar Estado</a>
+                </ul>
+            {% elif user.is_authenticated and user.is_superuser %}
+                <ul class="row col-5 pt-4 mb-5 mx-auto">
+                    <a href="{% url 'cliente_detail_edit' clientes.id %}" class="btn btn-primary col-xs-2 col-sm-2 col-md-2 col-lg-9 col-xl-9">Editar Estado</a>
+                </ul>
+            {% endif %} -->
+
+
+
+            {% if user.is_authenticated and user.id == clientes.id_user.id or user.is_superuser %}
+            <ul class="row col-5 pt-4 mb-5 mx-auto">
+              <a href="{% url 'cliente_detail_edit' clientes.id %}" class="btn btn-primary col-xs-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">Editar Estado</a>
+            </ul>
+            {% endif %}
+
+          
+
+
+            
+            <!-- <div class="row">
+                <div class="col-lg-7 mx-auto">
+        
+                    <div class="card mb-4 text-dark">
+                        <div class="card-body p-4">
+                            
+                            <ul class="list-unstyled list pl-5">
+                                <li class="mb-3 d-flex align-items-center"><i class="fa fa-hashtag me-2 mr-3" style="color:pink"></i><strong>Código: {{clientes.id}}</strong></li>
+                                <li class="mb-3 d-flex align-items-center"><i class="fa fa-adjust me-2 mr-3" style="color:pink"></i><strong>Estatus: En {{clientes.id_tipo_operacion.tipo_operacion}}</strong></li>
+                                <li class="mb-3 d-flex align-items-center"><i class="fa fa-home me-2 mr-3" style="color:pink"></i>Color de ojos: {{clientes.id_tipo_cliente.tipo_cliente}}</li>
+                                <li class="mb-3 d-flex align-items-center"><i class="fa fa-square me-2 mr-3" style="color:pink"></i>Color de pelo: {{clientes.m2_construido}}</li>
+                                <li class="mb-3 d-flex align-items-center"><i class="fa fa-plus-square me-2 mr-3" style="color:pink"></i>Cintura: {{clientes.m2_terreno}}</li>
+                                <li class="mb-3 d-flex align-items-center"><i class="fa fa-car me-2 mr-3" style="color:pink"></i>Estacionamientos: {{clientes.numero_est}}</li>
+                                <li class="mb-3 d-flex align-items-center"><i class="fas fa-dollar-sign me-2 mr-3" style="color:pink"></i><strong>Precio por hora: {{clientes.precio}}</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+        
+                </div>
+            </div> -->
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+              {% if clientes.descripcion %}
+              <!-- <h4 class="text-dark">Descripción:</h4> -->
+              <h5 style="word-break: break-word;">{{clientes.descripcion}}</h5>
+              {% else %}
+              {% endif %}
+            </div>
+
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 my-3">
+            
+      
+              <div class="col-lg-12 mx-auto">
+
+                <div class="row">
+                  <div class="col-4 mx-auto">
+                    <p class="text-center text-light rounded-pill col-12 fs-6 m-0" style="background-color: #9c9090;">Código Perfil</p>
+                    <p class="text-center text-light rounded-pill col-12 fs-6 mt-1" style="background-color: #ad15b3;">{{clientes.id}}</p>
+                  </div>
+                </div>
+  
+                <div class="row mt-3">
+                  <div class="col-6 px-0">
+                    <p class="text-center text-light rounded-pill col-12 fs-6 m-0" style="background-color: #9c9090;">Yo Soy</p>
+                    <p class="text-center text-light rounded-pill col-12 fs-6 mt-1" style="background-color: #ad15b3;">{{clientes.id_tipo_usuario}}</p>
+                </div>
+                  <div class="col-6 px-0">
+                    <p class="text-center text-light rounded-pill col-12 fs-6 m-0" style="background-color: #9c9090;">Nacionalidad</p>
+                    <p class="text-center text-light rounded-pill col-12 fs-6 mt-1" style="background-color: #ad15b3;">{{clientes.id_tipo_nation}}</p>
+                </div>
+                
+                </div>
+
+              <div class="row mt-3">
+                <div class="col-4 px-0">
+                  <p class="text-center text-light rounded-pill col-12 fs-6 m-0" style="background-color: #9c9090;">Medidas</p>
+                  <p class="text-center text-light rounded-pill col-12 fs-6 mt-1" style="background-color: #ad15b3;">{{clientes.medida_alta}} - {{clientes.medida_media}} - {{clientes.medida_baja}}</p>
+                </div>
+                <div class="col-4 px-0">
+                  <p class="text-center text-light rounded-pill col-12 fs-6 m-0" style="background-color: #9c9090;">Estatura</p>
+                  <p class="text-center text-light rounded-pill col-12 fs-6 mt-1" style="background-color: #ad15b3;">{{clientes.estatura}}</p>
+              </div>
+                <div class="col-4 px-0">
+                  <p class="text-center text-light rounded-pill col-12 fs-6 m-0" style="background-color: #9c9090;">Edad</p>
+                  <p class="text-center text-light rounded-pill col-12 fs-6 mt-1" style="background-color: #ad15b3;">{{clientes.edad}}</p>
+              </div>
+              </div>
+
+              <div class="row mt-3">
+                <div class="col-8 col-md-8 px-0">
+                  <p class="text-center text-light rounded-pill col-12 fs-6 m-0" style="background-color: #9c9090;">Días Disponible</p>
+                <p class="text-center text-light rounded-pill col-12 fs-6 mt-1" style="background-color: #ad15b3;">{{clientes.id_dias_lab}}</p>
+              </div>
+                <div class="col-4 col-sm-4 col-md-4 px-0">
+                  <p class="text-center text-light rounded-pill col-12 fs-6 m-0" style="background-color: #9c9090;">Horario</p>
+                <p class="text-center text-light rounded-pill col-12 fs-6 mt-1" style="background-color: #ad15b3;">{{clientes.id_horario}}</p>
+              </div>
+            </div>
+
+              <div class="row mt-3">
+                <div class="col-8 col-md-8 px-0">
+                  <p class="text-center text-light rounded-pill col-12 fs-6 m-0" style="background-color: #9c9090;">Región</p>
+                  <p class="text-center text-light rounded-pill col-12 fs-6 mt-1" style="background-color: #ad15b3;">{{clientes.id_region}}</p>
+              </div>
+                <div class="col-4 col-sm-4 col-md-4 px-0">
+                  <p class="text-center text-light rounded-pill col-12 fs-6 m-0" style="background-color: #9c9090;">Comuna</p>
+                  <p class="text-center text-light rounded-pill col-12 fs-6 mt-1" style="background-color: #ad15b3;">{{clientes.id_comuna}}</p>
+              </div>
+            </div>
+
+              <div class="row mt-3">
+                  {% if clientes.metro %}
+                <div class="col-8 px-0">
+                  <p class="text-center text-light rounded-pill col-12 fs-6 m-0" style="background-color: #9c9090;">Ubicación referencial</p>
+                  <p class="text-center text-light rounded-pill col-12 fs-6 mt-1" style="background-color: #ad15b3;">{{clientes.ubicacion}}</p>
+              </div>
+                <div class="col-4 px-0">
+                  <p class="text-center text-light rounded-pill col-12 fs-6 m-0" style="background-color: #9c9090;">Metro</p>
+                  <p class="text-center text-light rounded-pill col-12 fs-6 mt-1" style="background-color: #ad15b3;">{{clientes.metro}}</p>
+              </div>
+              {% else %}
+              <div class="col-12 px-0">
+                <p class="text-center text-light rounded-pill col-12 fs-6 m-0" style="background-color: #9c9090;">Ubicación referencial</p>
+                <p class="text-center text-light rounded-pill col-12 fs-6 mt-1" style="background-color: #ad15b3;">{{clientes.ubicacion}}</p>
+              </div>
+              {% endif %}
+            </div>
+
+              <div class="row mt-3">
+                  {% if clientes.servicios_add %}
+                  <div class="col-3 px-0">
+                    <p class="text-center text-light rounded-pill col-12 fs-6 m-0" style="background-color: #9c9090;">Servicio</p>
+                    <p class="text-center text-light rounded-pill col-12 fs-6 mt-1" style="background-color: #ad15b3;">{{clientes.id_servicio}}</p>
+                  </div>
+                  <div class="col-9 px-0">
+                    <p class="text-center text-light rounded-pill col-12 fs-6 m-0" style="background-color: #9c9090;">Servicios Adicionales</p>
+                    <p class="text-center text-light rounded-pill col-12 fs-6 mt-1" style="background-color: #ad15b3;">{{clientes.servicios_add}}</p>
+                </div>
+                  {% else %}
+                  <div class="col-6 mx-auto">
+                    <p class="text-center text-light rounded-pill col-12 fs-6 m-0" style="background-color: #9c9090;">Servicio</p>
+                    <p class="text-center text-light rounded-pill col-12 fs-6 mt-1" style="background-color: #ad15b3;">{{clientes.id_servicio}}</p>
+                </div>
+                  {% endif %}
+              </div>
+
+
+              <div class="row">
+                <div class="col-6 px-0 mx-auto">
+                  <p class="text-center text-light rounded-pill col-12 fs-6 m-0" style="background-color: #9c9090;"><strong>Tarifa</strong></p>
+                  <p class="text-center text-light rounded-pill col-12 fs-6 mt-1 number" style="background-color: #ad15b3;"><strong>{{clientes.tarifa}}</strong></p>
+                </div>
+              </div>
+                
+        
+            </div>
+            
+  
+  
+            
+            
+  
+        </div>
+
+        </div>
+          
+          
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <section class="container mt-4" style="width:100%;">
+
+  
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7 col-xl-7">
+      {% if clientes.descripcion %}
+      <h4 class="text-dark">Descripción:</h4>
+      <h5 style="word-break: break-word;">{{clientes.descripcion}}</h5>
+      {% else %}
+      {% endif %}
+    </div>
+
+
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 col-xl-5">
+      
+        <div class="container">
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            
+      
+            <div class="col-lg-7 mx-auto">
+
+              <div class="card mb-4 text-dark">
+                  <div class="card-body p-4">
+                      
+                      <ul class="list-unstyled list pl-5">
+                          <li class="mb-3 d-flex align-items-center"><i class="fa fa-hashtag me-2 mr-3" style="color:pink"></i><strong>Código: {{clientes.id}}</strong></li>
+                          <li class="mb-3 d-flex align-items-center"><i class="fa fa-adjust me-2 mr-3" style="color:pink"></i><strong>Estatus: {{clientes.id_tipo_usuario.tipo_usuario}}</strong></li>
+                          <li class="mb-3 d-flex align-items-center"><i class="fa fa-home me-2 mr-3" style="color:pink"></i>Color de ojos: {{clientes.id_tipo_nation.tipo_nation}}</li>
+                          <li class="mb-3 d-flex align-items-center"><i class="fa fa-square me-2 mr-3" style="color:pink"></i>Color de pelo: {{clientes.id_comuna.comuna}}</li>
+                          <li class="mb-3 d-flex align-items-center"><i class="fa fa-plus-square me-2 mr-3" style="color:pink"></i>Cintura: {{clientes.id_region.Region}}</li>
+                          <li class="mb-3 d-flex align-items-center"><i class="fa fa-car me-2 mr-3" style="color:pink"></i>Estacionamientos: {{clientes.medida_alta}}-{{clientes.medida_media}}-{{clientes.medida_baja}}</li>
+                          <li class="mb-3 d-flex align-items-center"><i class="fas fa-dollar-sign me-2 mr-3" style="color:pink"></i><strong>Tarifa: <span class="number">{{ clientes.tarifa }}</span></strong></li>
+                          <li class="mb-3 d-flex align-items-center"><i class="fas fa-dollar-sign me-2 mr-3" style="color:pink"></i><strong>Teléfono: {{clientes.id_dias_lab.dias_lab}}</strong></li>
+                          <li class="mb-3 d-flex align-items-center"><i class="fas fa-dollar-sign me-2 mr-3" style="color:pink"></i><strong>Teléfono: {{clientes.id_horario.horario}}</strong></li>
+                          <li class="mb-3 d-flex align-items-center"><i class="fas fa-dollar-sign me-2 mr-3" style="color:pink"></i><strong>Teléfono: {{clientes.id_servicio.servicio}}</strong></li>
+                      </ul>
+                  </div>
+              </div>
+              
+      
+          </div>
+          
+
+
+          
+          
+
+      </div>
+        
+        
+      
+    </div>
+  </div>
+</div>
+
+</section> -->
+
+<div class="botones" style="text-align: center;">
+  <!-- Botón WhatsApp --> 
+  <a href="https://api.whatsapp.com/send?phone=56{{clientes.telefono}}&text=¡Hola%20{{clientes.nickname}}!%20Te%20vi%20en%20HORASEX.COM.%20Me%20gustaria%20coordinar%20contigo."
+      target="_blank" style="text-decoration: none;">
+    <button class="rounded-pill" style="background-color: green; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; margin-right: 10px;">
+      Enviar WhatsApp
+    </button>
+  </a> 
+
+  <!-- Botón Llamar --> 
+  <a href="tel:+56{{clientes.telefono}}" style="text-decoration: none;">
+    <button class="rounded-pill" style="background-color: rgb(80, 182, 207); color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; margin-left: 10px;">
+      Llamar Ahora
+    </button>
+  </a>
+</div>
+
+
+
+
+
+
+
+<ul class="row col-5 mx-auto pt-4 mb-5">
+  <a href="{% url 'home' %}" class="btn btn-dark mt-4 col-xs-5 col-sm-5 col-md-5 col-lg-2 col-xl-2 mx-auto">Ir a Inicio</a>
+</ul>
+
+
+
+
+<!-- <a href="https://api.whatsapp.com/send?phone=56{{clientes.telefono}}&text=¡Hola%20{{clientes.nickname}}!%20Te%20vi%20en%20HORASEX.COM.%20Me%20gustaria%20coordinar%20contigo." class="btn-wsp" target="_blank"
+    data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="¡Contáctame vía Whatsapp!">
+        <i class="fa fa-whatsapp icono"></i>
+    </a> -->
+
+    <button class="share-btn" id="shareButton" data-bs-toggle="tooltip" data-bs-title="Compárteme"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 3V17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M7 8L12 3L17 8" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M5 14V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V14" 
+            stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg></button>
+
+    <!-- <div class="share-menu" id="shareMenu">
+        <a href="https://api.whatsapp.com/send?text=Mira esta web: https://tusitio.com" target="_blank">📱 WhatsApp</a>
+        <a href="mailto:?subject=Mira esta web&body=Te comparto este enlace: https://tusitio.com">📧 Correo</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tusitio.com" target="_blank">📘 Facebook</a>
+        <a href="https://twitter.com/intent/tweet?text=Mira%20esto&url=https://tusitio.com" target="_blank">🐦 Twitter</a>
+        <a href="#" id="copyLink">🔗 Copiar enlace</a>
+    </div> -->
+
+
+
+    <script>
+      const shareButton = document.getElementById('shareButton');
+      const shareMenu = document.getElementById('shareMenu');
+      const copyLink = document.getElementById('copyLink');
+
+      shareButton.addEventListener('click', () => {
+          if (navigator.share) {
+              navigator.share({
+                  title: 'Mira esta web',
+                  text: 'Echa un vistazo a este sitio increíble',
+                  url: window.location.href
+              }).catch(error => console.log('Error al compartir:', error));
+          } else {
+              shareMenu.style.display = shareMenu.style.display === 'flex' ? 'none' : 'flex';
+          }
+      });
+
+      // copyLink.addEventListener('click', (e) => {
+      //     e.preventDefault();
+      //     navigator.clipboard.writeText(window.location.href);
+      //     alert('¡Enlace copiado al portapapeles!');
+      //     shareMenu.style.display = 'none';
+      // });
+
+      // Cerrar el menú al hacer clic fuera
+      document.addEventListener('click', (event) => {
+          if (!shareButton.contains(event.target) && !shareMenu.contains(event.target)) {
+              shareMenu.style.display = 'none';
+          }
+      });
+  </script>
+
+
+
+{% endblock %}

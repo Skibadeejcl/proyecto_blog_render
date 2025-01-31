@@ -1,0 +1,5 @@
+[
+    {"model": "a_inicio.dias_lab", "pk": 1, "fields": {"dias_lab": "Lunes a Viernes"}},
+    {"model": "a_inicio.dias_lab", "pk": 2, "fields": {"dias_lab": "Lunes a Sábado"}},
+    {"model": "a_inicio.dias_lab", "pk": 3, "fields": {"dias_lab": "Lunes a Domingo"}}
+]

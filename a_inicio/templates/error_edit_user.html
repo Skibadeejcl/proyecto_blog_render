@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<br><br><br><br>
+<br><br><br><br>
+<body>
+    <h1 class="denegado_title">Acceso Denegado</h1>
+    <p class="denegado_body">No tiene permiso para editar este estado.</p>
+    <p class="denegado_body">Sólo el propietario de la cuenta y el Webmaster tienen permisos para editar este estado.</p>
+    <a class="denegado_boton" href="/">Volver al Inicio</a>
+</body>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        /* background-color: #f8f9fa; */
+        color: #333;
+        text-align: center;
+        /* padding: 50px; */
+    }
+    .denegado_title {
+        font-size: 3em;
+        color: #dc3545;
+    }
+    .denegado_body {
+        font-size: 1.2em;
+    }
+    .denegado_boton {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    .denegado_boton:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+{% endblock %}

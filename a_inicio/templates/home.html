@@ -1,0 +1,99 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% load static %}
+{% comment %} {% load watermark %} {% endcomment %}
+<br><br><br><br>
+
+<!-- Modal de verificación de edad (solo se muestra si show_modal es True) -->
+{% if show_modal %}
+<div class="modal fade text-light" id="ageModal" tabindex="-1" aria-labelledby="ageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="background-color:#9c9090;">
+          <div class="modal-header">
+              <h5 class="modal-title" id="ageModalLabel">Confirmación de Edad</h5>
+          </div>
+          <div class="modal-body text-center">
+              Debes ser mayor de edad para continuar. ¿Tienes 18 años o más?
+              <img class="img-fluid rounded" src="{% static 'logo_hs.avif' %}" alt="">
+              <!-- <a class="nav-link" href="{% url 'politicas_privacidad' %}">Ver Políticas de privacidad</a> -->
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" id="notAdultButton">No</button>
+              <button type="button" class="btn btn-primary" id="adultButton">Sí</button>
+          </div>
+      </div>
+  </div>
+</div>
+{% endif %}
+<!-- Fin Modal de verificación de edad -->
+
+
+<div class="container-fluid p-5">
+  <div class="row g-0">
+    {% for cliente in entity %}
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="card border-1 h-100 text-dark zoom">
+          <a href="{% url 'cliente_detail' cliente.id %}">
+            <img class="card-img-top d-block w-100 img-fluid" src="{{ cliente.image_portada1.url }}" style="height: 100%; max-height: 200px; object-fit: cover;">
+          </a>
+          <strong class="card-text text-capitalize rounded z-0 position-absolute bg-dark text-light bg-opacity-50 top-0 start-50 translate-middle-x mt-1 texto-home">
+            <h4 class="my-0">{{cliente.nickname}}</h4>
+          </strong>
+          <strong class="card-text text-capitalize rounded z-0 position-absolute bg-dark text-light bg-opacity-50 bottom-0 start-50 translate-middle-x mb-1 texto-home">
+            <h5 class="my-0">{{cliente.id_comuna.comuna}}</h5>
+          </strong>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+  {% include 'paginator.html' %}
+  
+  
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    // Función para obtener el valor de una cookie
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+    // Función para establecer una cookie
+    function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        const expires = `expires=${date.toUTCString()}`;
+        document.cookie = `${name}=${value}; ${expires}; path=/`;
+    }
+
+    // Verificar si el modal debe mostrarse
+    const isAdult = getCookie('is_adult');
+    const modalElement = document.getElementById('ageModal');
+    if (!isAdult && modalElement) {
+        const modal = new bootstrap.Modal(modalElement, {
+            backdrop: 'static', // Evitar cerrar el modal al hacer clic fuera
+            keyboard: false     // Evitar cerrar el modal con la tecla "Escape"
+        });
+        modal.show();
+
+        // Botón "No": redirige a Google
+        document.getElementById('notAdultButton').addEventListener('click', () => {
+            window.location.href = "https://www.google.com";
+        });
+
+        // Botón "Sí": oculta el modal y guarda la cookie
+        document.getElementById('adultButton').addEventListener('click', () => {
+            modal.hide();
+            setCookie('is_adult', true, 365); // Guardar la cookie por 1 año
+        });
+    }
+});
+</script>    
+  
+{% endblock %}
