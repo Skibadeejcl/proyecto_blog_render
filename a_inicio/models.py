@@ -91,7 +91,7 @@ def validar_duracion_video(value):
 
         # Comprobamos si la duración supera el máximo permitido
         if clip.duration > max_duration:
-            raise ValidationError(f"La duración del video no puede superar los {max_duration} segundos.")
+            raise ValidationError(f"La duración del video no puede ser más de 6 segundos.")
     except Exception as e:
         raise ValidationError(f"No se pudo procesar el video. Error: {e}")
     finally:
