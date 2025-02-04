@@ -226,7 +226,7 @@ class Clientes(models.Model):
                             watermark.putalpha(alpha)
 
                             # Redimensionar la marca de agua proporcionalmente al tamaño de la imagen original
-                            scale_factor = 0.3  # Ajusta el tamaño de la marca de agua (30% del ancho de la imagen)
+                            scale_factor = 0.5  # Ajusta el tamaño de la marca de agua (30% del ancho de la imagen)
                             watermark = watermark.resize(
                                 (int(img.width * scale_factor),
                                  int(watermark.height * img.width / watermark.width * scale_factor)),
