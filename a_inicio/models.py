@@ -235,7 +235,7 @@ class Clientes(models.Model):
 
                             # Determinar la posición de la marca de agua (esquina inferior derecha)
                             watermark_position = (
-                                img.width - watermark.width - 10,  # 10 px de margen a la derecha
+                                img.width - watermark.width - 200,  # 10 px de margen a la derecha
                                 img.height - watermark.height - 10  # 10 px de margen inferior
                             )
 

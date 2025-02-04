@@ -1,19 +1,19 @@
 {% load static %}
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top py-2" style="background-color:#9c9090;">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top py-2 border" style="background-color:white;">
   <div class="position-absolute top-0 start-50 translate-middle-x w-100 d-flex justify-content-center align-items-center">
     <!-- Contenedor para el ícono, con desplazamiento a la izquierda usando left -->
     <div class="position-relative" style="left: -20px;">
       <li class="nav-item list-unstyled mt-3">
         <a class="nav-link" id="navbarFilterLink" href="{% url 'indexavisos' %}">
-          <i class="fa fa-search bi" style="color: white;"></i>
+          <i class="fa fa-search bi" style="color: black;"></i>
         </a>
       </li>
     </div>
   
     <!-- Logo centrado -->
     <a href="{% url 'home' %}">
-      <img src="{% static 'logo_hs.avif' %}" alt="Logo" height="50" class="d-inline-block align-text-top">
+      <img src="{% static 'logo_blanco-fondo.png' %}" alt="Logo" height="50" class="d-inline-block align-text-top">
     </a>
   </div>
   
@@ -22,14 +22,14 @@
 
   <div class="container-fluid mt-4">
     <a class="navbar-brand fw-bold fuente_navbartitulo position-relative py-2 px-1 text-light mt-1" href="{% url 'home' %}">
-      <h1 class="d-inline-block align-text-top">H<FONT style="color:red;">S</FONT></h1>
+      <h1 class="d-inline-block align-text-top"><FONT style="color:red;">HS</FONT></h1>
     </a>
 
     
 
     {% if user.is_authenticated %}
     <a href="{% url 'dashboard' %}" style="text-decoration: none;">
-      <h5 class="text-capitalize fuente_userportada me-3" style="color: #fcc3e3;">Sesión: {{ user.username }}</h5>
+      <h5 class="text-capitalize fuente_userportada me-3" style="color: black;">Sesión: {{ user.username }}</h5>
     </a>
     {% endif %}
 
@@ -109,7 +109,7 @@
           <a class="nav-link btn text-light btn-lg px-4 py-2" href="{% url 'login_url' %}" style="background-color:#a51515;">Iniciar sesión</a>
         {% else %}
           <a class="nav-link btn text-light btn-lg px-4 py-2" href="{% url 'dashboard' %}" style="background-color:#a51515;">Ver Perfil</a>
-          <a class="nav-link btn btn-outline-primary text-light btn-lg px-4 py-2 ms-2" href="{% url 'logout' %}">Cerrar sesión</a>
+          <a class="nav-link btn btn-dark text-light btn-lg px-4 py-2 ms-2" href="{% url 'logout' %}">Cerrar sesión</a>
         {% endif %}
       </div>
     </div>
