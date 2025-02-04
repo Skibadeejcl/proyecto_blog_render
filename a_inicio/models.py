@@ -219,7 +219,7 @@ class Clientes(models.Model):
                             watermark = watermark.convert("RGBA")
 
                             # Ajustar la opacidad de la marca de agua
-                            opacity = 150  # Valor entre 0 (transparente) y 255 (opaco)
+                            opacity = 255  # Valor entre 0 (transparente) y 255 (opaco)
                             watermark = watermark.copy()
                             alpha = watermark.split()[3]  # Extrae el canal alfa de la marca de agua
                             alpha = alpha.point(lambda p: p * (opacity / 255))  # Ajusta la opacidad
@@ -235,7 +235,7 @@ class Clientes(models.Model):
 
                             # Determinar la posición de la marca de agua (esquina inferior derecha)
                             watermark_position = (
-                                img.width - watermark.width - 200,  # 10 px de margen a la derecha
+                                img.width - watermark.width - 10,  # 10 px de margen a la derecha
                                 img.height - watermark.height - 10  # 10 px de margen inferior
                             )
 
