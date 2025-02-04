@@ -1,43 +1,30 @@
 {% load static %}
 
-<nav class="navbar navbar-expand-lg navbar-light fixed-top py-2 border" style="background-color:white;">
-  <div class="position-absolute top-0 start-50 translate-middle-x w-100 d-flex justify-content-center align-items-center">
-    <!-- Contenedor para el ícono, con desplazamiento a la izquierda usando left -->
-    <div class="position-relative" style="left: -20px;">
-      <li class="nav-item list-unstyled mt-3">
-        <a class="nav-link" id="navbarFilterLink" href="{% url 'indexavisos' %}">
-          <i class="fa fa-search bi" style="color: black;"></i>
-        </a>
-      </li>
-    </div>
-  
-    <!-- Logo centrado -->
-    <a href="{% url 'home' %}">
-      <img src="{% static 'logo_blanco-fondo.png' %}" alt="Logo" height="50" class="d-inline-block align-text-top">
-    </a>
-  </div>
-  
-  
-  
+<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 border" style="background-color:white;">
+  <div class="container-fluid">
+    
+    <a class="navbar-brand fw-bold fuente_navbartitulo" href="{% url 'home' %}">
+      <img src="{% static 'logo_blanco-fondo.png' %}" alt="Logo" height="30" class="d-inline-block align-text-top">
+    </a>  
 
-  <div class="container-fluid mt-4">
+  <!-- <div class="container-fluid mt-4">
     <a class="navbar-brand fw-bold fuente_navbartitulo position-relative py-2 px-1 text-light mt-1" href="{% url 'home' %}">
       <h1 class="d-inline-block align-text-top"><FONT style="color:red;">HS</FONT></h1>
-    </a>
+    </a> -->
 
     
 
     {% if user.is_authenticated %}
-    <a href="{% url 'dashboard' %}" style="text-decoration: none;">
-      <h5 class="text-capitalize fuente_userportada me-3" style="color: black;">Sesión: {{ user.username }}</h5>
+    <a href="{% url 'dashboard' %}" style="text-decoration: none;" class="d-none d-sm-block d-sm-none d-md-block">
+      <h5 class="text-capitalize fuente_userportada me-3 mt-2" style="color: black;">Sesión: {{ user.username }}</h5>
     </a>
     {% endif %}
 
-    <!-- <li class="nav-item list-unstyled ps-5">
+    <li class="nav-item list-unstyled pe-5">
       <a class="nav-link" id="navbarFilterLink" href="{% url 'indexavisos' %}">
-        <i class="fa fa-search bi" style="color: white;"></i>
+        <i class="fa fa-search bi" style="color: black;"></i>
       </a>
-    </li> -->
+    </li>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -53,26 +40,26 @@
         </li> -->
 
         <li class="nav-item">
-          <a class="nav-link" href="https://proyecto-bloghs-render.onrender.com/indexavisos/?nickname=&id_region=16&id_comuna=&id_tipo_usuario=">Santiago</a>
+          <a class="nav-link" href="http://127.0.0.1:8000/indexavisos/?nickname=&id_region=16&id_comuna=&id_tipo_usuario=">Santiago</a>
         </li>
 
         <li class="nav-item dropdown">
           <button class="btn btn-black dropdown-toggle nav-link no-border" data-bs-toggle="dropdown" aria-expanded="false">
             Zona Sur
           </button>
-          <ul class="dropdown-menu dropdown-menu-dark" style="background-color:white;">
-            <li><a class="dropdown-item nav-link" href="https://proyecto-bloghs-render.onrender.com/indexavisos/?nickname=&id_region=&id_comuna=83&id_tipo_usuario=1">Rancagua</a></li>
-            <li><a class="dropdown-item nav-link" href="https://proyecto-bloghs-render.onrender.com/indexavisos/?nickname=&id_region=&id_comuna=129&id_tipo_usuario=1">Curicó</a></li>
-            <li><a class="dropdown-item nav-link" href="https://proyecto-bloghs-render.onrender.com/indexavisos/?nickname=&id_region=&id_comuna=116&id_tipo_usuario=1">Talca</a></li>
-            <li><a class="dropdown-item nav-link" href="https://proyecto-bloghs-render.onrender.com/indexavisos/?nickname=&id_region=&id_comuna=138&id_tipo_usuario=1">Linares</a></li>
-            <li><a class="dropdown-item nav-link" href="https://proyecto-bloghs-render.onrender.com/indexavisos/?nickname=&id_region=&id_comuna=155&id_tipo_usuario=1">Chillán</a></li>
-            <li><a class="dropdown-item nav-link" href="https://proyecto-bloghs-render.onrender.com/indexavisos/?nickname=&id_region=&id_comuna=167&id_tipo_usuario=1">Concepción</a></li>
-            <li><a class="dropdown-item nav-link" href="https://proyecto-bloghs-render.onrender.com/indexavisos/?nickname=&id_region=&id_comuna=186&id_tipo_usuario=1">Los Ángeles</a></li>
-            <li><a class="dropdown-item nav-link" href="https://proyecto-bloghs-render.onrender.com/indexavisos/?nickname=&id_region=&id_comuna=200&id_tipo_usuario=1">Temuco</a></li>
-            <li><a class="dropdown-item nav-link" href="https://proyecto-bloghs-render.onrender.com/indexavisos/?nickname=&id_region=&id_comuna=214&id_tipo_usuario=1">Pucón</a></li>
-            <li><a class="dropdown-item nav-link" href="https://proyecto-bloghs-render.onrender.com/indexavisos/?nickname=&id_region=&id_comuna=232&id_tipo_usuario=1">Valdivia</a></li>
-            <li><a class="dropdown-item nav-link" href="https://proyecto-bloghs-render.onrender.com/indexavisos/?nickname=&id_region=&id_comuna=263&id_tipo_usuario=1">Osorno</a></li>
-            <li><a class="dropdown-item nav-link" href="https://proyecto-bloghs-render.onrender.com/indexavisos/?nickname=&id_region=&id_comuna=244&id_tipo_usuario=1">Puerto Montt</a></li>
+          <ul class="dropdown-menu dropdown-menu-dark" style="background-color:white">
+            <li><a class="dropdown-item nav-link" href="http://127.0.0.1:8000/indexavisos/?nickname=&id_region=&id_comuna=83&id_tipo_usuario=1">Rancagua</a></li>
+            <li><a class="dropdown-item nav-link" href="http://127.0.0.1:8000/indexavisos/?nickname=&id_region=&id_comuna=129&id_tipo_usuario=1">Curicó</a></li>
+            <li><a class="dropdown-item nav-link" href="http://127.0.0.1:8000/indexavisos/?nickname=&id_region=&id_comuna=116&id_tipo_usuario=1">Talca</a></li>
+            <li><a class="dropdown-item nav-link" href="http://127.0.0.1:8000/indexavisos/?nickname=&id_region=&id_comuna=138&id_tipo_usuario=1">Linares</a></li>
+            <li><a class="dropdown-item nav-link" href="http://127.0.0.1:8000/indexavisos/?nickname=&id_region=&id_comuna=155&id_tipo_usuario=1">Chillán</a></li>
+            <li><a class="dropdown-item nav-link" href="http://127.0.0.1:8000/indexavisos/?nickname=&id_region=&id_comuna=167&id_tipo_usuario=1">Concepción</a></li>
+            <li><a class="dropdown-item nav-link" href="http://127.0.0.1:8000/indexavisos/?nickname=&id_region=&id_comuna=186&id_tipo_usuario=1">Los Ángeles</a></li>
+            <li><a class="dropdown-item nav-link" href="http://127.0.0.1:8000/indexavisos/?nickname=&id_region=&id_comuna=200&id_tipo_usuario=1">Temuco</a></li>
+            <li><a class="dropdown-item nav-link" href="http://127.0.0.1:8000/indexavisos/?nickname=&id_region=&id_comuna=214&id_tipo_usuario=1">Pucón</a></li>
+            <li><a class="dropdown-item nav-link" href="http://127.0.0.1:8000/indexavisos/?nickname=&id_region=&id_comuna=232&id_tipo_usuario=1">Valdivia</a></li>
+            <li><a class="dropdown-item nav-link" href="http://127.0.0.1:8000/indexavisos/?nickname=&id_region=&id_comuna=263&id_tipo_usuario=1">Osorno</a></li>
+            <li><a class="dropdown-item nav-link" href="http://127.0.0.1:8000/indexavisos/?nickname=&id_region=&id_comuna=244&id_tipo_usuario=1">Puerto Montt</a></li>
           </ul>
         </li>
 
@@ -80,26 +67,26 @@
           <button class="btn btn-black dropdown-toggle nav-link no-border" data-bs-toggle="dropdown" aria-expanded="false">
             Zona Norte
           </button>
-          <ul class="dropdown-menu dropdown-menu-dark" style="background-color:white;">
-            <li><a class="dropdown-item nav-link" href="https://proyecto-bloghs-render.onrender.com/indexavisos/?nickname=&id_region=&id_comuna=51&id_tipo_usuario=1">Viña del Mar</a></li>
-            <li><a class="dropdown-item nav-link" href="https://proyecto-bloghs-render.onrender.com/indexavisos/?nickname=&id_region=&id_comuna=47&id_tipo_usuario=1">Concón</a></li>
-            <li><a class="dropdown-item nav-link" href="https://proyecto-bloghs-render.onrender.com/indexavisos/?nickname=&id_region=&id_comuna=21&id_tipo_usuario=1">Copiapó</a></li>
-            <li><a class="dropdown-item nav-link" href="https://proyecto-bloghs-render.onrender.com/indexavisos/?nickname=&id_region=&id_comuna=12&id_tipo_usuario=1">Antofagasta</a></li>
-            <li><a class="dropdown-item nav-link" href="https://proyecto-bloghs-render.onrender.com/indexavisos/?nickname=&id_region=&id_comuna=16&id_tipo_usuario=1">Calama</a></li>
-            <li><a class="dropdown-item nav-link" href="https://proyecto-bloghs-render.onrender.com/indexavisos/?nickname=&id_region=&id_comuna=5&id_tipo_usuario=1">Iquique</a></li>
+          <ul class="dropdown-menu dropdown-menu-dark" style="background-color:white">
+            <li><a class="dropdown-item nav-link" href="http://127.0.0.1:8000/indexavisos/?nickname=&id_region=&id_comuna=51&id_tipo_usuario=1">Viña del Mar</a></li>
+            <li><a class="dropdown-item nav-link" href="http://127.0.0.1:8000/indexavisos/?nickname=&id_region=&id_comuna=47&id_tipo_usuario=1">Concón</a></li>
+            <li><a class="dropdown-item nav-link" href="http://127.0.0.1:8000/indexavisos/?nickname=&id_region=&id_comuna=21&id_tipo_usuario=1">Copiapó</a></li>
+            <li><a class="dropdown-item nav-link" href="http://127.0.0.1:8000/indexavisos/?nickname=&id_region=&id_comuna=12&id_tipo_usuario=1">Antofagasta</a></li>
+            <li><a class="dropdown-item nav-link" href="http://127.0.0.1:8000/indexavisos/?nickname=&id_region=&id_comuna=16&id_tipo_usuario=1">Calama</a></li>
+            <li><a class="dropdown-item nav-link" href="http://127.0.0.1:8000/indexavisos/?nickname=&id_region=&id_comuna=5&id_tipo_usuario=1">Iquique</a></li>
           </ul>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="https://proyecto-bloghs-render.onrender.com/indexavisos/?nickname=&id_region=&id_comuna=&id_tipo_usuario=4">Masajes</a>
+          <a class="nav-link" href="http://127.0.0.1:8000/indexavisos/?nickname=&id_region=&id_comuna=&id_tipo_usuario=4">Masajes</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="https://proyecto-bloghs-render.onrender.com/indexavisos/?nickname=&id_region=16&id_comuna=&id_tipo_usuario=3">Santiago Trans</a>
+          <a class="nav-link" href="http://127.0.0.1:8000/indexavisos/?nickname=&id_region=16&id_comuna=&id_tipo_usuario=3">Santiago Trans</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="https://proyecto-bloghs-render.onrender.com/indexavisos/?nickname=&id_region=16&id_comuna=&id_tipo_usuario=2">Santiago Hombres</a>
+          <a class="nav-link" href="http://127.0.0.1:8000/indexavisos/?nickname=&id_region=16&id_comuna=&id_tipo_usuario=2">Santiago Hombres</a>
         </li>
       </ul>
 

@@ -75,7 +75,7 @@ class Servicio(models.Model):
         return self.servicio
 
 def validar_duracion_video(value):
-    max_duration = 8  # Duración máxima en segundos
+    max_duration = 7  # Duración máxima en segundos
     clip = None
 
     try:
